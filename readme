@@ -1,0 +1,10 @@
+//------ multer is use to create api for image file as middleware------
+//   npm i multer
+// const multer = require('multer');----> how to use multer in express js
+
+// const upload = multer({ storage: multer.memoryStorage() });
+    
+// app.post("/create-posts", upload.single('image'), async(req, res) => {
+//     console.log(req.body);
+//     console.log(req.file);
+// });
