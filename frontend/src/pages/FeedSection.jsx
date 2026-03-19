@@ -1,7 +1,9 @@
 import React, { useState , useEffect } from 'react'
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const FeedSection = () => {
+      const navigate = useNavigate(); // ✅ correct place
   const [Post, setPost] = useState([
         {
         id: 1,
@@ -12,17 +14,24 @@ const FeedSection = () => {
  useEffect(()=>{
     axios.get("http://localhost:3000/posts")
     .then((res)=>{
-        console.log(res.data)
-        setPost(res.data)
+        console.log("DATA",res.data)
+        setPost(res.data.posts);
     })
- },[])
+    .catch((err)=>{
+        console.log("ERROR",err);
+    });
 
-
+ },[]);
     return(
     <section className='feed-section'>
       <div className='nav'>
         <h1>Feed</h1>
-        <button>Back</button>
+        
+        {/* ✅ Back Button */}
+        <button onClick={() => navigate(-1)}>
+          Back
+        </button>
+
       </div>    
         <div className='post-container'>
         {    Post.length > 0 ? (
