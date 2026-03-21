@@ -8,3 +8,4 @@
 //     console.log(req.body);
 //     console.log(req.file);
 // });
+//cors has implemented successfully
