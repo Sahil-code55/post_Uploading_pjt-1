@@ -14,7 +14,7 @@ const FeedSection = () => {
  useEffect(()=>{
     axios.get("http://localhost:3000/posts")
     .then((res)=>{
-        console.log("DATA",res.data)
+        
         setPost(res.data.posts);
     })
     .catch((err)=>{
